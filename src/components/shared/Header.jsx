@@ -12,65 +12,103 @@ const Base = styled.header`
     position: fixed;
     top: 0;
     width: 100%;
-    height: 56px;
-    padding: 0 16px;
-    background-color: white;
+    height: 60px;
+    padding: 10px 16px;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    margin: 0;
+    background-color: white;
+`;
+const LeftTap = styled.div`
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    flex: 1;
 `;
 
-const Tap = styled.nav`
+const CenterTap = styled.div`
+    flex: 2;
     display: flex;
+
+
+`;
+
+const RightTap = styled.div`
+    display: flex;
+    padding: 0;
+    box-sizing: border-box;
     align-items: center;
+    justify-content: right;
+    flex: 1;
 `;
 
 
 const IconWrapper = styled.div`
+    border-radius: 50%;
+    display: flex;
     align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
-    padding: 15px 0;
     cursor: pointer;
-    margin-top: 10px;
+    &:active {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+`;
+
+const SearchIconWrapper = styled.div`
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 50px;
+    height: 40px;
+    background-color: #f8f8f8;
+    border: 1px solid #d3d3d3;
+    box-sizing: border-box;
+    position: relative;
+    left: -1px;
+    cursor: pointer;
 `;
 
 const Logo = styled.img`
-    padding-left: 16px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    height: 35px;
 `;
 
 const Input = styled.input`
-    width: 450px;
-    height: 30px;
+    width: 100%;
+    height: 40px;
     border: 1px solid #d3d3d3;
     box-sizing: border-box;
-    flex: 1;
-    margin-right: 10px;
+    outline: none;
 `;
 
-const Header = () => {
+const Header = ({handleMenuClick}) => {
+    
     return (
         <Base>
-            <Tap>
-                <IconWrapper>
+            <LeftTap>
+                <IconWrapper onClick={handleMenuClick}>
                     <FiMenu size={30} />
                 </IconWrapper>
                 <Logo src={youtube_logo} />
-            </Tap>
-            <Tap>
+            </LeftTap>
+            <CenterTap>
                 <Input />
-                <IconWrapper>
-                    <IoSearchOutline size={25} />
-                </IconWrapper>
-            </Tap>
-            <Tap>
+                <SearchIconWrapper>
+                    <IoSearchOutline size={23} />
+                </SearchIconWrapper>
+            </CenterTap>
+            <RightTap>
                 <IconWrapper>
                     <BsGrid3X3Gap size={25} />
                 </IconWrapper>
                 <IconWrapper>
                     <HiOutlineDotsVertical size={25} />
                 </IconWrapper>
-            </Tap>
+            </RightTap>
         </Base>
 )
 }

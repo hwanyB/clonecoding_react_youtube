@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled/macro';
-import Layout from '../components/Layout';
+import Layout from '../components/shared/Layout';
 import AssignmentInfo from '../components/AssignmentInfo';
 
 

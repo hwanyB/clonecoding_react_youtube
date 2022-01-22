@@ -4,6 +4,7 @@ import styled from '@emotion/styled/macro';
 
 
 
+
 const Base = styled.div`
     /* margin: 100px auto; */
     width: 250px;
