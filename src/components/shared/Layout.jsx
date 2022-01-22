@@ -24,10 +24,36 @@ const Contents = styled.div`
     font-size: 30px;
     background-color: #f8f8f8;
     z-index: -99;
-    padding: 70px 220px;
+    padding: ${({menuIsOpenned}) => menuIsOpenned === true ? `70px 220px` : `70px 16px`};
     box-sizing: border-box;
     width: 100%;
+    @media screen and (max-width: 911px){
+        padding: ${({menuIsOpenned}) => menuIsOpenned === true ? `70px 100px` : `70px 16px`};
+    }
 `;
+const ContentsLayout = styled.div`
+    flex: 1;
+    max-width: 1284px;
+    @media screen and (max-width: 697px){
+        flex: 0 1 214px;
+    }
+    @media screen and (min-width: 698px) and (max-width: 911px){
+        flex: 0 1 428px;
+    }
+    @media screen and (min-width: 912px) and (max-width: 1125px){
+        flex: 0 1 642px;
+    }
+    @media screen and (min-width: 1126px) and (max-width: 1339px){
+        flex: 0 1 856px;
+    }
+    @media screen and (min-width: 1340px) and (max-width: 1553px){
+        flex: 0 1 1070px;
+    }
+    @media screen and (min-width: 1554){
+        flex: 0 1 1284px;
+    }
+`;
+
 
 
 
@@ -43,7 +69,9 @@ const Layout = ({children}) => {
                 {
                     menuIsOpenned && <Menu />
                 }
-                <Contents>{children}</Contents>
+                <Contents menuIsOpenned={menuIsOpenned}>
+                    <ContentsLayout>{children}</ContentsLayout>
+                </Contents>
             </LayoutWrapper>
         </Container>
     )

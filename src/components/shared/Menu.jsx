@@ -15,12 +15,19 @@ const Base = styled.div`
     width: 200px;
     height: 100vh;
     background-color: white;
+    @media screen and (max-width: 911px){
+        width: 72px;
+    }
+
 `;
 
 const LinkWrapper = styled.div`
     padding: 0 16px;
     &:hover {
         background-color: rgba(0, 0, 0, 0.05);
+    }
+    @media screen and (max-width: 911px){
+        padding: 0 10px;
     }
 `;
 
@@ -32,6 +39,9 @@ const StyledLink = styled(Link)`
     display: flex;
     font-size: 25px;
     color: #222;
+    @media screen and (max-width: 911px){
+        justify-content: center;
+    }
 `;
 
 const MenuText = styled.div`
@@ -39,6 +49,9 @@ const MenuText = styled.div`
     margin-left: 10px;
     line-height: 25px;
     font-weight: 100;
+    @media screen and (max-width: 911px){
+        display: none;
+    }
 `;
 
 
