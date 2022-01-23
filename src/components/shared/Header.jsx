@@ -19,6 +19,7 @@ const Base = styled.header`
     box-sizing: border-box;
     margin: 0;
     background-color: white;
+    z-index: 99;
 `;
 const LeftTap = styled.div`
     display: flex;

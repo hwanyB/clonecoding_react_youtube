@@ -5,7 +5,7 @@ import Layout from '../components/shared/Layout';
 const Subscription = () => {
     return (
         <>
-            <Layout>
+            <Layout activeMenu='subscription'>
                 <div>구독</div>
             </Layout>
         </>

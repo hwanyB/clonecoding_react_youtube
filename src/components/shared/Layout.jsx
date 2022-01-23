@@ -23,18 +23,21 @@ const Contents = styled.div`
     position: relative;
     font-size: 30px;
     background-color: #f8f8f8;
-    z-index: -99;
-    padding: ${({menuIsOpenned}) => menuIsOpenned === true ? `70px 220px` : `70px 16px`};
+    padding: ${({menuIsOpenned}) => menuIsOpenned === true ? `70px 50px 0 220px` : `70px 50px 0 100px`};
     box-sizing: border-box;
     width: 100%;
     @media screen and (max-width: 911px){
-        padding: ${({menuIsOpenned}) => menuIsOpenned === true ? `70px 100px` : `70px 16px`};
+        padding: ${({menuIsOpenned}) => menuIsOpenned === true ? `70px 50px 0 100px` : `70px 50px 0 50px`};
     }
 `;
 const ContentsLayout = styled.div`
+z-index: 9999;
     flex: 1;
     max-width: 1284px;
-    @media screen and (max-width: 697px){
+    @media screen and (max-width: 449px){
+        flex: 0 1 150px;
+    }
+    @media screen and (min-width: 450px) and (max-width: 697px){
         flex: 0 1 214px;
     }
     @media screen and (min-width: 698px) and (max-width: 911px){
@@ -57,7 +60,7 @@ const ContentsLayout = styled.div`
 
 
 
-const Layout = ({children}) => {
+const Layout = ({ children, activeMenu }) => {
     const [menuIsOpenned, setMenuIsOpenned] = useState(true);
     const handleMenuClick = ()=>{
         setMenuIsOpenned(prev => !prev);
@@ -67,7 +70,7 @@ const Layout = ({children}) => {
             <Header handleMenuClick={handleMenuClick} />
             <LayoutWrapper>
                 {
-                    menuIsOpenned && <Menu />
+                    menuIsOpenned && <Menu activeMenu={activeMenu} />
                 }
                 <Contents menuIsOpenned={menuIsOpenned}>
                     <ContentsLayout>{children}</ContentsLayout>

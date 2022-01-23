@@ -1,4 +1,3 @@
-import youtubeData from './data/youtubeData.json';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Explore from './pages/Explore';
