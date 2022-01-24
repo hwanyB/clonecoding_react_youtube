@@ -1,4 +1,4 @@
-import react from "react";
+import react, { useState } from "react";
 import styled from "@emotion/styled/macro";
 import youtube_logo from '../../data/youtube_logo.png';
 import { FiMenu } from 'react-icons/fi';
@@ -87,7 +87,16 @@ const Input = styled.input`
 `;
 
 const Header = ({handleMenuClick}) => {
-    
+    const [inputValue, setInputValue] = useState('');
+    const handleInputChange = (e) => {
+        setInputValue(e.target.value);
+    }
+    const handleSearchClick = () => {
+        
+        console.log(inputValue);
+    }
+
+
     return (
         <Base>
             <LeftTap>
@@ -97,8 +106,8 @@ const Header = ({handleMenuClick}) => {
                 <Logo src={youtube_logo} />
             </LeftTap>
             <CenterTap>
-                <Input />
-                <SearchIconWrapper>
+                <Input onChange={handleInputChange} />
+                <SearchIconWrapper onClick={handleSearchClick}>
                     <IoSearchOutline size={23} />
                 </SearchIconWrapper>
             </CenterTap>
