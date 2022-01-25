@@ -1,5 +1,5 @@
 import React from 'react';
-import ExploreCard from '../components/ExploreCard';
+import HorizontalCard from '../components/shared/HorizontalCard';
 import Layout from '../components/shared/Layout';
 import youtubeData from '../data/youtubeData.json';
 
@@ -9,7 +9,7 @@ const Explore = () => {
             {
                 youtubeData['data'].map((data, index) => {
                     return (
-                        <ExploreCard key={`explore-card-${index}`} data={data} />
+                        <HorizontalCard key={`explore-card-${index}`} data={data} />
                     )
                 })
             }

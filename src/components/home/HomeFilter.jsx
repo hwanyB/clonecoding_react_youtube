@@ -5,11 +5,10 @@ const Container = styled.div`
     margin: 0;
 `;
 const FilterUl = styled.ul`
-padding: 0;
-margin: 0;
+    padding: 0;
+    margin: 0;
 `;
 const FilterLi = styled.button`
-
     height: 30px;
     color: #000;
     display: inline-block;

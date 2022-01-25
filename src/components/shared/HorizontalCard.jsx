@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
+import { ProcessUploadDate, ProcessViewCount } from '../../utils';
 
 const CardWrapper = styled.a`
     text-decoration: none;
@@ -23,8 +24,9 @@ const Thumbnail = styled.img`
 const Info = styled.div`
     flex: 1;
     width: 200px;
-    @media screen and (max-width: 529px){
+    @media screen and (max-width: 511px){
         display: none;
+        width: 0;
     }
 `;
 
@@ -72,7 +74,7 @@ const Desc = styled.div`
 const Time = styled.div`
 `;
 
-const ExploreCard = ({ data }) => {
+const HorizontalCard = ({ data }) => {
     return(
             <CardWrapper href={`https://www.youtube.com/watch?v=${data.id}`}>
                 <Card>
@@ -83,8 +85,8 @@ const ExploreCard = ({ data }) => {
                             <Uploader href={`https://www.youtube.com/channel/${data.channelId}`}>
                                 {data.channelTitle}
                             </Uploader>
-                            <View>{data.viewCount}</View>
-                            <Time>{data.date}</Time>
+                            <View>{ProcessViewCount(data.viewCount)}</View>
+                            <Time>{ProcessUploadDate(data.date)}</Time>
                         </Meta>
                         <Desc>{data.description}</Desc>
                     </Info>
@@ -93,4 +95,4 @@ const ExploreCard = ({ data }) => {
     );
 }
 
-export default ExploreCard;
+export default HorizontalCard;

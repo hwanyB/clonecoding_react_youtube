@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
+import { ProcessViewCount, ProcessUploadDate } from '../../utils';
 
 const Card = styled.a`
     text-decoration: none;
@@ -12,6 +13,9 @@ const Thumbnail = styled.img`
     width: 100%;
     height: 150px;
     object-fit: cover;
+    @media screen and (max-width: 511px){
+        height: 200px;
+    }
 `;
 
 
@@ -77,8 +81,8 @@ const HomeCard = ({ data, index }) => {
                 <Title> {data.title}</Title>
                 <Uploader>{data.channelTitle}</Uploader>
                 <TextWrapper>
-                    <View>{data.viewCount}</View>
-                    <Time>{data.date}</Time>
+                    <View>{ProcessViewCount(data.viewCount)}</View>
+                    <Time>{ProcessUploadDate(data.date)}</Time>
                 </TextWrapper>
             </div>
             </Info>

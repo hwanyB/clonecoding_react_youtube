@@ -23,28 +23,25 @@ const Contents = styled.div`
     position: relative;
     font-size: 30px;
     background-color: #f8f8f8;
-    padding: ${({menuIsOpenned}) => menuIsOpenned === true ? `70px 50px 0 220px` : `70px 50px 0 100px`};
     box-sizing: border-box;
     width: 100%;
-    @media screen and (max-width: 911px){
-        padding: ${({menuIsOpenned}) => menuIsOpenned === true ? `70px 50px 0 100px` : `70px 50px 0 50px`};
-    }
 `;
 const ContentsLayout = styled.div`
-z-index: 9999;
+    z-index: 9999;
     flex: 1;
     max-width: 1284px;
-    @media screen and (max-width: 449px){
-        flex: 0 1 150px;
-    }
-    @media screen and (min-width: 450px) and (max-width: 697px){
-        flex: 0 1 214px;
-    }
-    @media screen and (min-width: 698px) and (max-width: 911px){
-        flex: 0 1 428px;
+    margin: 100px auto;
+    padding: 0 13%;
+    padding-left: ${({menuIsOpenned}) => menuIsOpenned === true && `calc(13% + 200px)`};
+
+    @media screen and (min-width: 0px) and (max-width: 911px){
+        padding: 0 5%;
+        padding-left: ${({menuIsOpenned}) => menuIsOpenned === true && `calc(5% + 72px)`};
     }
     @media screen and (min-width: 912px) and (max-width: 1125px){
         flex: 0 1 642px;
+        padding: 0 5%;
+        padding-left: ${({menuIsOpenned}) => menuIsOpenned === true && `calc(5% + 200px)`};
     }
     @media screen and (min-width: 1126px) and (max-width: 1339px){
         flex: 0 1 856px;
@@ -52,7 +49,7 @@ z-index: 9999;
     @media screen and (min-width: 1340px) and (max-width: 1553px){
         flex: 0 1 1070px;
     }
-    @media screen and (min-width: 1554){
+    @media screen and (min-width: 1554px){
         flex: 0 1 1284px;
     }
 `;
@@ -72,8 +69,8 @@ const Layout = ({ children, activeMenu }) => {
                 {
                     menuIsOpenned && <Menu activeMenu={activeMenu} />
                 }
-                <Contents menuIsOpenned={menuIsOpenned}>
-                    <ContentsLayout>{children}</ContentsLayout>
+                <Contents>
+                    <ContentsLayout menuIsOpenned={menuIsOpenned}>{children}</ContentsLayout>
                 </Contents>
             </LayoutWrapper>
         </Container>
